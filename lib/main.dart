@@ -4,8 +4,10 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mood_app1/bloc/settings/settings_bloc.dart';
 import 'package:mood_app1/initialise_app.dart';
+import 'package:mood_app1/screens/home_screen.dart';
 import 'package:mood_app1/themes/dark_theme.dart';
 import 'package:mood_app1/themes/light_theme.dart';
 import 'package:status_bar_control/status_bar_control.dart';
@@ -22,7 +24,16 @@ void main() async {
   final connected = connectivity.first == ConnectivityResult.wifi ||
       connectivity.first == ConnectivityResult.ethernet;
 
-  runApp(const MainApp());
+  final brightness = WidgetsBinding.instance.window.platformBrightness;
+
+  runApp(
+    BlocProvider(
+      create: (context) {
+        return SettingsBloc(brightness: brightness); // Pass brightness here
+      },
+      child: const MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -32,9 +43,23 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final brightness = MediaQuery.of(context).platformBrightness;
 
+    final GoRouter router = GoRouter(
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => const HomeScreen(),
+        ),
+        // Add more routes here as needed
+        // Example:
+        // GoRoute(
+        //   path: '/details',
+        //   builder: (context, state) => const DetailsScreen(),
+        // ),
+      ],
+    );
+
     return BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, settingsState) {
-
       Future<void> setSystemColor() async {
         if (settingsState.appTheme == AppTheme.dark) {
           await StatusBarControl.setStyle(StatusBarStyle.LIGHT_CONTENT);
@@ -56,23 +81,19 @@ class MainApp extends StatelessWidget {
       setSystemColor();
 
       ThemeMode themeMode;
-            if (settingsState.appTheme == AppTheme.auto) {
-              themeMode = ThemeMode.system;
-            } else if (settingsState.appTheme == AppTheme.dark) {
-              themeMode = ThemeMode.dark;
-            } else {
-              themeMode = ThemeMode.light;
-            }
+      if (settingsState.appTheme == AppTheme.auto) {
+        themeMode = ThemeMode.system;
+      } else if (settingsState.appTheme == AppTheme.dark) {
+        themeMode = ThemeMode.dark;
+      } else {
+        themeMode = ThemeMode.light;
+      }
 
-      return MaterialApp(
+      return MaterialApp.router(
+        routerConfig: router,
         theme: lightTheme,
-              darkTheme: darkTheme,
-              themeMode: themeMode,
-        home: Scaffold(
-          body: Center(
-            child: Text('Hello World!'),
-          ),
-        ),
+        darkTheme: darkTheme,
+        themeMode: themeMode,
         debugShowCheckedModeBanner: false,
       );
     });
