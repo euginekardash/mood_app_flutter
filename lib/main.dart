@@ -29,7 +29,7 @@ void main() async {
   runApp(
     BlocProvider(
       create: (context) {
-        return SettingsBloc(brightness: brightness); // Pass brightness here
+        return SettingsBloc(brightness: brightness); 
       },
       child: const MainApp(),
     ),
