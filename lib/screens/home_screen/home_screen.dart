@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:mood_app1/gen/assets.gen.dart';
 import 'package:mood_app1/screens/home_screen/widgets/focus_container.dart';
+import 'package:mood_app1/screens/home_screen/widgets/mood_column.dart';
 import 'package:mood_app1/widgets/backgroung_gradient.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   DateTime selectedDate = DateTime.now();
 
   void _showDatePicker() async {
-    DateTime? pickedDate = await showModalBottomSheet<DateTime>(
+    DateTime? pickedDate = await showModalBottomSheet(
       context: context,
       builder: (context) {
         DateTime tempPickedDate = selectedDate;
@@ -32,9 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           child: Container(
             padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30)
-            ),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
             height: 440,
             child: Column(
               children: [
@@ -54,7 +54,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   child: Text("Select Date"),
                 ),
-                const SizedBox(height: 20,)
+                const SizedBox(
+                  height: 20,
+                )
               ],
             ),
           ),
@@ -64,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     if (pickedDate != null) {
       setState(() {
-        selectedDate = pickedDate; 
+        selectedDate = pickedDate;
       });
     }
   }
@@ -77,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            toolbarHeight: 90,
+            toolbarHeight: 80,
             forceMaterialTransparency: true,
             elevation: 0,
             leadingWidth: 30 + 30,
@@ -93,10 +95,13 @@ class _HomeScreenState extends State<HomeScreen> {
             actions: [
               Padding(
                 padding: const EdgeInsets.only(right: 30.0),
-                child: SvgPicture.asset(
-                  Assets.icons.profile,
-                  width: 30,
-                  height: 30,
+                child: InkWell(
+                  onTap: () => context.go('/profile'),
+                  child: SvgPicture.asset(
+                    Assets.icons.profile,
+                    width: 30,
+                    height: 30,
+                  ),
                 ),
               ),
             ],
@@ -119,6 +124,14 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 FocusContainer(),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    MoodColumn(),
+                  ],
+                )
               ],
             ),
           ),
@@ -127,3 +140,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+

@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mood_app1/bloc/settings/settings_bloc.dart';
 import 'package:mood_app1/initialise_app.dart';
 import 'package:mood_app1/screens/home_screen/home_screen.dart';
+import 'package:mood_app1/screens/profile_screen/profile_screen.dart';
 import 'package:mood_app1/themes/dark_theme.dart';
 import 'package:mood_app1/themes/light_theme.dart';
 import 'package:status_bar_control/status_bar_control.dart';
@@ -29,12 +30,36 @@ void main() async {
   runApp(
     BlocProvider(
       create: (context) {
-        return SettingsBloc(brightness: brightness); 
+        return SettingsBloc(brightness: brightness);
       },
       child: const MainApp(),
     ),
   );
 }
+
+final GoRouter _router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) =>
+          const HomeScreen(),
+      routes: <RouteBase>[
+        GoRoute(
+          path: 'profile',
+          builder: (BuildContext context, GoRouterState state) {
+            return const ProfileScreen();
+          },
+        ),
+      ],
+    ),
+    // Add more routes here as needed
+    // Example:
+    // GoRoute(
+    //   path: '/details',
+    //   builder: (context, state) => const DetailsScreen(),
+    // ),
+  ],
+);
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -42,21 +67,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final brightness = MediaQuery.of(context).platformBrightness;
-
-    final GoRouter router = GoRouter(
-      routes: [
-        GoRoute(
-          path: '/',
-          builder: (context, state) => const HomeScreen(),
-        ),
-        // Add more routes here as needed
-        // Example:
-        // GoRoute(
-        //   path: '/details',
-        //   builder: (context, state) => const DetailsScreen(),
-        // ),
-      ],
-    );
 
     return BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, settingsState) {
@@ -90,7 +100,7 @@ class MainApp extends StatelessWidget {
       }
 
       return MaterialApp.router(
-        routerConfig: router,
+        routerConfig: _router,
         theme: lightTheme,
         darkTheme: darkTheme,
         themeMode: themeMode,
