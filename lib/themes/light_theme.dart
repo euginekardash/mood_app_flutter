@@ -4,8 +4,8 @@ final lightTheme = ThemeData(
   useMaterial3: true,
   scaffoldBackgroundColor: Colors.white,
   brightness: Brightness.light,
-  primaryColor: const Color.fromRGBO(69, 154, 255, 1),
-  primaryColorLight: const Color.fromRGBO(191, 220, 251, 1),
+  primaryColor: const Color.fromRGBO(178, 218, 223, 1),
+  primaryColorDark: const Color.fromRGBO(149, 196, 215, 1),
   cardColor: const Color.fromRGBO(164, 179, 196, 1),
   hintColor: const Color.fromRGBO(232, 243, 249, 1),
   highlightColor: const Color.fromRGBO(58, 148, 231, 0.1),
@@ -53,11 +53,11 @@ final lightTheme = ThemeData(
           IconThemeData(size: 25, color: Color.fromRGBO(191, 220, 251, 1))),
   textTheme: const TextTheme(
     bodyLarge: TextStyle(
-        fontSize: 20,
+        fontSize: 24,
         color: Colors.black,
-        height: 2,
-        fontWeight: FontWeight.w600),
-    bodyMedium: TextStyle(fontSize: 18, color: Colors.black),
+        letterSpacing: -1.2,
+        fontWeight: FontWeight.w300),
+    bodyMedium: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.w400, letterSpacing: -1.2,),
     bodySmall: TextStyle(fontSize: 14, color: Colors.black),
     labelMedium: TextStyle(
         fontSize: 16, color: Colors.black, fontWeight: FontWeight.w400),

@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mood_app1/bloc/settings/settings_bloc.dart';
 import 'package:mood_app1/initialise_app.dart';
-import 'package:mood_app1/screens/home_screen.dart';
+import 'package:mood_app1/screens/home_screen/home_screen.dart';
 import 'package:mood_app1/themes/dark_theme.dart';
 import 'package:mood_app1/themes/light_theme.dart';
 import 'package:status_bar_control/status_bar_control.dart';

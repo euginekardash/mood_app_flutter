@@ -53,10 +53,10 @@ final darkTheme = ThemeData(
           IconThemeData(size: 25, color: Color.fromRGBO(191, 220, 251, 1))),
   textTheme: const TextTheme(
     bodyLarge: TextStyle(
-        fontSize: 20,
-        color: Colors.white,
-        height: 2,
-        fontWeight: FontWeight.w600),
+        fontSize: 24,
+        color: Colors.black,
+        letterSpacing: -1.2,
+        fontWeight: FontWeight.w300),
     bodyMedium: TextStyle(fontSize: 18, color: Colors.white),
     bodySmall: TextStyle(fontSize: 14, color: Colors.white),
     labelMedium: TextStyle(

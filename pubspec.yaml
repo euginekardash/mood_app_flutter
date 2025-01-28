@@ -14,8 +14,10 @@ dependencies:
   flutter_bloc: ^9.0.0
   flutter_gen: ^5.8.0
   flutter_local_notifications: ^18.0.1
+  flutter_svg: ^2.0.17
   go_router: ^14.7.1
   hydrated_bloc: ^10.0.0
+  intl: ^0.20.2
   json_annotation: ^4.9.0
   path_provider: ^2.1.5
   status_bar_control: ^3.2.1
@@ -32,3 +34,4 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/icons/
