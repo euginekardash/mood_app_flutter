@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 
 final lightTheme = ThemeData(
   useMaterial3: true,
-  scaffoldBackgroundColor: Colors.white,
+  scaffoldBackgroundColor: Color.fromRGBO(217, 232, 234, 1),
   brightness: Brightness.light,
   primaryColor: const Color.fromRGBO(178, 218, 223, 1),
   primaryColorDark: const Color.fromRGBO(149, 196, 215, 1),
-  cardColor: const Color.fromRGBO(164, 179, 196, 1),
-  hintColor: const Color.fromRGBO(232, 243, 249, 1),
-  highlightColor: const Color.fromRGBO(58, 148, 231, 0.1),
+  hintColor: const Color.fromRGBO(205, 228, 237, 1),
   bottomAppBarTheme: const BottomAppBarTheme(
     color: Color.fromRGBO(191, 220, 251, 1),
   ),

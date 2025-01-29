@@ -15,6 +15,18 @@ class SettingsState extends Equatable {
       required this.appTheme,
       required this.fontSize});
 
+  ThemeMode get currentThemeMode {
+    switch (appTheme) {
+      case AppTheme.dark:
+        return ThemeMode.dark;
+      case AppTheme.light:
+        return ThemeMode.light;
+      case AppTheme.auto:
+      default:
+        return ThemeMode.system;
+    }
+  }
+
   SettingsState copyWith({
     bool? onboardingPassed,
     bool? isNotificationsEnabled,
@@ -31,12 +43,8 @@ class SettingsState extends Equatable {
   }
 
   @override
-  List<Object> get props => [
-        onboardingPassed,
-        isNotificationsEnabled,
-        appTheme,
-        fontSize
-      ];
+  List<Object> get props =>
+      [onboardingPassed, isNotificationsEnabled, appTheme, fontSize];
 
   factory SettingsState.fromJson(Map<String, dynamic> json) =>
       _$SettingsStateFromJson(json);

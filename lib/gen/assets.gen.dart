@@ -15,14 +15,20 @@ class $AssetsIconsGen {
   /// File path: assets/icons/calendar.svg
   String get calendar => 'assets/icons/calendar.svg';
 
+  /// File path: assets/icons/login.svg
+  String get login => 'assets/icons/login.svg';
+
   /// File path: assets/icons/pen.svg
   String get pen => 'assets/icons/pen.svg';
 
   /// File path: assets/icons/profile.svg
   String get profile => 'assets/icons/profile.svg';
 
+  /// File path: assets/icons/settings.svg
+  String get settings => 'assets/icons/settings.svg';
+
   /// List of all assets
-  List<String> get values => [calendar, pen, profile];
+  List<String> get values => [calendar, login, pen, profile, settings];
 }
 
 class $AssetsImagesGen {

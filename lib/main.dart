@@ -9,6 +9,7 @@ import 'package:mood_app1/bloc/settings/settings_bloc.dart';
 import 'package:mood_app1/initialise_app.dart';
 import 'package:mood_app1/screens/home_screen/home_screen.dart';
 import 'package:mood_app1/screens/profile_screen/profile_screen.dart';
+import 'package:mood_app1/screens/settings_screen/settings_screen.dart';
 import 'package:mood_app1/themes/dark_theme.dart';
 import 'package:mood_app1/themes/light_theme.dart';
 import 'package:status_bar_control/status_bar_control.dart';
@@ -43,12 +44,17 @@ final GoRouter _router = GoRouter(
       path: '/',
       builder: (BuildContext context, GoRouterState state) =>
           const HomeScreen(),
-      routes: <RouteBase>[
+      routes: [
         GoRoute(
           path: 'profile',
           builder: (BuildContext context, GoRouterState state) {
             return const ProfileScreen();
           },
+          routes: [
+            GoRoute(path: 'settings', builder: (BuildContext context, GoRouterState state){
+              return const SettingsScreen();
+            })
+          ]
         ),
       ],
     ),

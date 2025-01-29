@@ -36,6 +36,13 @@ class SelectAppTheme extends SettingsEvent {
   List<Object> get props => [appTheme];
 }
 
+class ToggleTheme extends SettingsEvent {
+  const ToggleTheme();
+
+  @override
+  List<Object> get props => [];
+}
+
 class ScaleUpFontSize extends SettingsEvent {
   const ScaleUpFontSize();
 

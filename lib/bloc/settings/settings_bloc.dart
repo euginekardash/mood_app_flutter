@@ -47,6 +47,22 @@ class SettingsBloc extends HydratedBloc<SettingsEvent, SettingsState> {
       ));
     });
 
+    on<ToggleTheme>((event, emit) {
+      AppTheme nextTheme;
+      switch (state.appTheme) {
+        case AppTheme.light:
+          nextTheme = AppTheme.dark;
+          break;
+        case AppTheme.dark:
+          nextTheme = AppTheme.light;
+          break;
+        case AppTheme.auto:
+        default:
+          nextTheme = AppTheme.light;
+      }
+      emit(state.copyWith(appTheme: nextTheme));
+    });
+
     on<ScaleUpFontSize>((event, emit) {
       if (state.fontSize != fontSizes.last) {
         final nextSize = fontSizes[fontSizes.indexOf(state.fontSize) + 1];
