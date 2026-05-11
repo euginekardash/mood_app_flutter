@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mood_app1/gen/assets.gen.dart';
 
 class LoginConatiner extends StatelessWidget {
@@ -10,7 +11,7 @@ class LoginConatiner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => context.go('/profile/login'),
       child: Container(
           height: 50,
           width: 355,

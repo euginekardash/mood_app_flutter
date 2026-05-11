@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mood_app1/bloc/settings/settings_bloc.dart';
 import 'package:mood_app1/initialise_app.dart';
 import 'package:mood_app1/screens/home_screen/home_screen.dart';
+import 'package:mood_app1/screens/login_screen/login_screen.dart';
 import 'package:mood_app1/screens/profile_screen/profile_screen.dart';
 import 'package:mood_app1/screens/settings_screen/settings_screen.dart';
 import 'package:mood_app1/themes/dark_theme.dart';
@@ -53,8 +54,11 @@ final GoRouter _router = GoRouter(
           routes: [
             GoRoute(path: 'settings', builder: (BuildContext context, GoRouterState state){
               return const SettingsScreen();
+            }),
+            GoRoute(path: 'login', builder: (BuildContext context, GoRouterState state){
+              return const LoginScreen();
             })
-          ]
+          ],
         ),
       ],
     ),
