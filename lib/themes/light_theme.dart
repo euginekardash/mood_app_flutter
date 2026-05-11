@@ -7,7 +7,7 @@ final lightTheme = ThemeData(
   primaryColor: const Color.fromRGBO(178, 218, 223, 1),
   primaryColorDark: const Color.fromRGBO(149, 196, 215, 1),
   hintColor: const Color.fromRGBO(205, 228, 237, 1),
-  bottomAppBarTheme: const BottomAppBarTheme(
+  bottomAppBarTheme: const BottomAppBarThemeData(
     color: Color.fromRGBO(191, 220, 251, 1),
   ),
   inputDecorationTheme: InputDecorationTheme(

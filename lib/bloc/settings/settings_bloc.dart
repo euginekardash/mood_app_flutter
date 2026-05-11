@@ -57,8 +57,7 @@ class SettingsBloc extends HydratedBloc<SettingsEvent, SettingsState> {
           nextTheme = AppTheme.light;
           break;
         case AppTheme.auto:
-        default:
-          nextTheme = AppTheme.light;
+        nextTheme = AppTheme.light;
       }
       emit(state.copyWith(appTheme: nextTheme));
     });

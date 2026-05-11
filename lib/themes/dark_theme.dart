@@ -9,7 +9,7 @@ final darkTheme = ThemeData(
   cardColor: const Color.fromRGBO(164, 179, 196, 1),
   hintColor: const Color.fromRGBO(11, 26, 44, 1),
   highlightColor: const Color.fromRGBO(58, 148, 231, 0.1),
-  bottomAppBarTheme: const BottomAppBarTheme(
+  bottomAppBarTheme: const BottomAppBarThemeData(
     color: Color.fromRGBO(191, 220, 251, 1),
   ),
   inputDecorationTheme: InputDecorationTheme(

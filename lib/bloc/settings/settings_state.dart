@@ -22,8 +22,7 @@ class SettingsState extends Equatable {
       case AppTheme.light:
         return ThemeMode.light;
       case AppTheme.auto:
-      default:
-        return ThemeMode.system;
+      return ThemeMode.system;
     }
   }
 
