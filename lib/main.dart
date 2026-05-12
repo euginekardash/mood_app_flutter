@@ -10,7 +10,9 @@ import 'package:mood_app1/initialise_app.dart';
 import 'package:mood_app1/screens/home_screen/home_screen.dart';
 import 'package:mood_app1/screens/login_screen/login_screen.dart';
 import 'package:mood_app1/screens/profile_screen/profile_screen.dart';
+import 'package:mood_app1/screens/registration_screen/registration_screen.dart';
 import 'package:mood_app1/screens/settings_screen/settings_screen.dart';
+import 'package:mood_app1/screens/login_screen/widgets/reset_password_screen.dart';
 import 'package:mood_app1/themes/dark_theme.dart';
 import 'package:mood_app1/themes/light_theme.dart';
 import 'package:status_bar_control/status_bar_control.dart';
@@ -52,12 +54,31 @@ final GoRouter _router = GoRouter(
             return const ProfileScreen();
           },
           routes: [
-            GoRoute(path: 'settings', builder: (BuildContext context, GoRouterState state){
-              return const SettingsScreen();
-            }),
-            GoRoute(path: 'login', builder: (BuildContext context, GoRouterState state){
-              return const LoginScreen();
-            })
+            GoRoute(
+              path: 'settings',
+              builder: (BuildContext context, GoRouterState state) {
+                return const SettingsScreen();
+              },
+            ),
+            GoRoute(
+              path: 'login',
+              builder: (BuildContext context, GoRouterState state) {
+                return const LoginScreen();
+              },
+              routes: [
+                GoRoute(
+                    path: 'reset-password',
+                    builder: (BuildContext context, GoRouterState state) {
+                      return const ResetPasswordScreen();
+                    }),
+                GoRoute(
+                  path: 'register',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const RegistrationScreen();
+                  },
+                ),
+              ],
+            ),
           ],
         ),
       ],
