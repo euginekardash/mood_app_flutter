@@ -72,11 +72,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   bool isSameDay(DateTime selectedDate) {
-  final now = DateTime.now();
-  return selectedDate.year == now.year &&
-         selectedDate.month == now.month &&
-         selectedDate.day == now.day;
-}
+    final now = DateTime.now();
+    return selectedDate.year == now.year &&
+        selectedDate.month == now.month &&
+        selectedDate.day == now.day;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,21 +114,26 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
             title: InkWell(
               onTap: _showDatePicker,
-              child: isSameDay(selectedDate) ? Column(
-                children: [
-                  Text(
-                    "Today",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w200),
-                  ),
-                  Text(
-                    DateFormat('dd.MM.yyyy').format(selectedDate),
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w200),
-                  )
-                ],
-              ) : Text(
-                    DateFormat('dd.MM.yyyy').format(selectedDate),
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
-                  ),
+              child: isSameDay(selectedDate)
+                  ? Column(
+                      children: [
+                        Text(
+                          "Today",
+                          style: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.w200),
+                        ),
+                        Text(
+                          DateFormat('dd.MM.yyyy').format(selectedDate),
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w200),
+                        )
+                      ],
+                    )
+                  : Text(
+                      DateFormat('dd.MM.yyyy').format(selectedDate),
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.w300),
+                    ),
             ),
           ),
           body: Container(
@@ -143,6 +148,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   children: [
                     MoodColumn(),
+                    SizedBox(
+                      width: 30,
+                    ),
+                    Container(
+                      height: 245,
+                      width: 150,
+                      decoration: BoxDecoration(
+                          color: Color.fromRGBO(247, 251, 252, 100),
+                          borderRadius: BorderRadius.circular(10)),
+                    )
                   ],
                 )
               ],
@@ -153,4 +168,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-

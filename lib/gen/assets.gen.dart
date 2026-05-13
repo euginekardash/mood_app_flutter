@@ -17,14 +17,23 @@ class $AssetsIconsGen {
   /// File path: assets/icons/apple.svg
   String get apple => 'assets/icons/apple.svg';
 
+  /// File path: assets/icons/bad.svg
+  String get bad => 'assets/icons/bad.svg';
+
   /// File path: assets/icons/calendar.svg
   String get calendar => 'assets/icons/calendar.svg';
+
+  /// File path: assets/icons/good.svg
+  String get good => 'assets/icons/good.svg';
 
   /// File path: assets/icons/google.svg
   String get google => 'assets/icons/google.svg';
 
   /// File path: assets/icons/login.svg
   String get login => 'assets/icons/login.svg';
+
+  /// File path: assets/icons/nothing.svg
+  String get nothing => 'assets/icons/nothing.svg';
 
   /// File path: assets/icons/pen.svg
   String get pen => 'assets/icons/pen.svg';
@@ -35,9 +44,27 @@ class $AssetsIconsGen {
   /// File path: assets/icons/settings.svg
   String get settings => 'assets/icons/settings.svg';
 
+  /// File path: assets/icons/terrible.svg
+  String get terrible => 'assets/icons/terrible.svg';
+
+  /// File path: assets/icons/wonderful.svg
+  String get wonderful => 'assets/icons/wonderful.svg';
+
   /// List of all assets
-  List<String> get values =>
-      [apple, calendar, google, login, pen, profile, settings];
+  List<String> get values => [
+        apple,
+        bad,
+        calendar,
+        good,
+        google,
+        login,
+        nothing,
+        pen,
+        profile,
+        settings,
+        terrible,
+        wonderful
+      ];
 }
 
 class $AssetsImagesGen {
