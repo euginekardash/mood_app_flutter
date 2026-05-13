@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:mood_app1/gen/assets.gen.dart';
 import 'package:mood_app1/screens/home_screen/widgets/focus_container.dart';
 import 'package:mood_app1/screens/home_screen/widgets/mood_column.dart';
+import 'package:mood_app1/screens/home_screen/widgets/note_container.dart';
 import 'package:mood_app1/widgets/backgroung_gradient.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -151,13 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       width: 30,
                     ),
-                    Container(
-                      height: 245,
-                      width: 150,
-                      decoration: BoxDecoration(
-                          color: Color.fromRGBO(247, 251, 252, 100),
-                          borderRadius: BorderRadius.circular(10)),
-                    )
+                    NoteContainer()
                   ],
                 )
               ],
@@ -168,3 +163,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
