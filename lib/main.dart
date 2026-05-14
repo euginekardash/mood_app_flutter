@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:mood_app1/bloc/day_data/day_data_bloc.dart';
 import 'package:mood_app1/bloc/settings/settings_bloc.dart';
 import 'package:mood_app1/initialise_app.dart';
 import 'package:mood_app1/screens/home_screen/home_screen.dart';
@@ -32,10 +34,19 @@ void main() async {
   final brightness = WidgetsBinding.instance.window.platformBrightness;
 
   runApp(
-    BlocProvider(
-      create: (context) {
-        return SettingsBloc(brightness: brightness);
-      },
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) {
+            return SettingsBloc(brightness: brightness);
+          },
+        ),
+        BlocProvider(
+          create: (context) {
+            return DayDataBloc();
+          },
+        ),
+      ],
       child: const MainApp(),
     ),
   );
@@ -120,6 +131,8 @@ class MainApp extends StatelessWidget {
       }
 
       setSystemColor();
+
+      //HydratedBloc.storage.clear();
 
       ThemeMode themeMode;
       if (settingsState.appTheme == AppTheme.auto) {

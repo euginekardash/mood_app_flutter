@@ -142,13 +142,13 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                FocusContainer(),
+                FocusContainer(date: selectedDate),
                 const SizedBox(
                   height: 30,
                 ),
                 Row(
                   children: [
-                    MoodColumn(),
+                    MoodColumn(date: selectedDate),
                     SizedBox(
                       width: 30,
                     ),
